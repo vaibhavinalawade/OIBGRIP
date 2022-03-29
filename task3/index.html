@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>task3</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+
+<style>
+	body{
+		color: black;
+		background-color: rgb(83, 83, 83);
+        background: rgb(238,174,202);
+        background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+		
+	}
+	h2{
+		text-align: center;
+		font-family: 'Courier New', Courier, monospace;
+		padding: 20px;
+		color:  white;
+	}
+	input{
+		padding: 10px;
+		border-radius: 5px;
+		border: 2px solid black;
+		outline: none;
+	}
+	input:focus{
+		border: solid;
+		border-color:  rgb(43, 43, 44);
+		border-width: 3px;
+
+	}
+	select{
+		padding: 10px;
+		width: 200PX;
+		margin: 10PX;
+		border-radius: 5px;
+		border: 2px solid black;
+	}
+	#label1{
+		padding: 10px;
+		width: 200PX;
+		border-radius: 5px;
+		margin: 0;
+		background-color: white;
+		border: 2px solid black;
+		}
+	#label2{
+		padding: 10px;
+		height: fit-content;
+		width: 200PX;
+		border-radius: 5px;
+		background-color: white;
+		border: 2px solid black;
+		margin-top: 7px;
+	}
+	#box-cont{
+		width: 500px;
+		height:400px;
+		margin-left: 32%;
+		background-color: rgb(141, 146, 146);
+		margin-top: 100px;
+		border-radius: 10px;
+		border-color: black;
+        opacity: 1.0;
+		border-width: 2px;
+		border-style: groove;
+		box-shadow: 8px 18px 23px 8px rgb(22, 0, 0);
+
+        
+	}	
+    .btn{
+        transition-duration: 0.4s;
+        height: 60px;
+        font-size: 20px;
+        background-color: #89023E;
+}
+    .btn:hover{
+        background-color: black;
+        color: blanchedalmond;
+    }
+</style>
+
+
+<script>
+
+function CTOF(valNum) {
+  valNum = parseFloat(valNum);
+  document.getElementById("outputCelcius").innerHTML=(valNum *9/5) +32;
+}
+function FTOC(valNum) {
+  valNum = parseFloat(valNum);
+  document.getElementById("outputCelcius").innerHTML=(valNum -32) *5/9;
+}
+function CTOK(valNum) {
+  valNum = parseFloat(valNum);
+  document.getElementById("outputCelcius").innerHTML=(valNum + 273.15);
+}
+function CTOC(valNum) {
+  valNum = parseFloat(valNum);
+  document.getElementById("outputCelcius").innerHTML=(valNum);
+}
+
+
+function converter(){
+	var x = document.getElementById("myselect").value;
+	var input = document.getElementById("cel").value;
+  document.getElementById("outputCelcius").innerHTML = x;
+	if(x =="Celsius"){
+		this.CTOC(input);
+	}
+	else if(x=="Fahrenheit"){
+		this.CTOF(input);
+	}
+	else if(x == "kelvin"){
+		this.CTOK(input);
+	}
+}
+
+</script>
+
+
+
+<body>	
+<div id="box-cont">
+<h2><strong>TEMPERATURE CONVERTER</strong></h2>
+<hr style="border: 0.5px;border-color: black;border-style: groove;">
+
+		<div style="margin: 5%; display: flex;justify-content: space-between;">
+			<label id="label2">Celsius To =</label>
+			<div>
+				<select class="select" name="TEMPERATURE" id="myselect">
+				<option value="Celsius">Celsius</option>
+				<option value="Fahrenheit">Fahrenheit</option>
+				<option value="kelvin">kelvin</option>
+				</select>
+			</div>
+		</div>
+		<div class="container" style="margin-top: 7%;">
+			<div class="container" style="display: flex;justify-content: space-between;">
+				<input type="number"  id="cel" >
+				<label id="label1"><span id="outputCelcius"></span></label>
+				
+			</div>
+	</div>
+		<button style="margin-left: 40%; margin-top: 7%;" type="button" class="btn btn-success" onclick="converter()">CONVERT</button>	
+</body>
+</html>
